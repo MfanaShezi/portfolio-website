@@ -7,6 +7,11 @@
     color: #fff;
    
   }
+
+  #current{
+    color: #ffa500;
+}
+
   
   /* Header Styling */
 
@@ -107,11 +112,11 @@
   }
   
 
-  /* Skills */
+  /* Skills styling  */
   .skills {
-    background-color: #1a1a1a;
-    padding: 50px 20px;
+    padding: 30px 20px;
     text-align: center;
+    margin-top: 50px;
   }
   
   .skills h2 {
@@ -121,14 +126,15 @@
   
   .skills-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    list-style-type: none;
   }
   
   .skill-item {
     background-color: #333;
     margin: 10px;
     padding: 20px;
+    border: 2px solid  #ffa500;
     border-radius: 5px;
     width: 150px;
     color: #fff;
@@ -158,14 +164,21 @@
     .main h1 {
       font-size: 2.5rem;
     }
+    nav {
+        flex-direction: row;
+    }
   
     .mains p {
       font-size: 1.2rem;
     }
+    
+    header{
+        height: 10vh;
+    }
   
     .nav-links li {
       display: block;
-      margin: 10px 0;
+      margin: 10px 20px;
     }
   
     .skills-container {
