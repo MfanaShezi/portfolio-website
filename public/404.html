@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>404 - Page Not Found | Nhlonipho Shezi</title>
+    <link rel="icon" href="styles/images/shezi.png">
+    <style>
+        .error-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            color: #FFA500; /* Orange color matching your form */
+            margin: 0;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 1rem 0;
+        }
+
+        .error-description {
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .home-button {
+            background-color: #FFA500;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #FF8C00;
+        }
+
+        /* Animation for the 404 number */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .error-code {
+            animation: shake 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <section class="logo">Nhlonipho M Shezi</section>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-message">Page Not Found</h2>
+        <p class="error-description">The page you're looking for doesn't exist or has been moved.</p>
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i> Go Home
+        </a>
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://www.linkedin.com/in/nhloniphoshezi" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:2020227209@ufs4life.ac.za" target="_blank">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </p>
+        <p>&copy;UFS. Nhlonipho Shezi</p>
+    </footer>
+</body>
+</html>
