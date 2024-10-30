@@ -36,6 +36,6 @@ app.use((req, res) => {
   // res.status(404).send('Page not found');
 });
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
