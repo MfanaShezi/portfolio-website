@@ -1,108 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/contact.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Nhlonipho Shezi</title>
-     <link rel="icon" href="styles/images/shezi.png">
-</head>
-<body>
-    <header>
-        <nav>
-          <section class="logo">Nhlonipho M Shezi</section>
-          <ul class="nav-links">
-            <li ><a href="index.html"><i class="fas fa-home"></i></a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a  id="current" href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <form id="contactForm" onsubmit="handleSubmit(event)">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-    
-            <label for="surname">Surname</label>
-            <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/index.css" />
+		<link rel="stylesheet" href="styles/contact.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+		<title>Nhlonipho Shezi</title>
+		<link rel="icon" href="styles/images/shezi.png" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<section class="logo">Nhlonipho M Shezi</section>
+				<ul class="nav-links">
+					<li>
+						<a href="index.html"><i class="fas fa-home"></i></a>
+					</li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="project.html">Projects</a></li>
+					<li><a id="current" href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<form id="contactForm" onsubmit="handleSubmit(event)">
+				<label for="name">Name</label>
+				<input
+					type="text"
+					id="name"
+					name="name"
+					placeholder="Enter your name"
+					required />
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+				<label for="surname">Surname</label>
+				<input
+					type="text"
+					id="surname"
+					name="surname"
+					placeholder="Enter your surname"
+					required />
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
-            <section id="form_button">
-                <button type="submit">Send</button>
-            </section>
-        </form>
-     </main>
-     <footer>
-      <p>
-        <a href="https://www.linkedin.com/in/nhloniphoshezi" target="_blank"><i class="fab fa-linkedin"></i></i></a>
-        <a href="mailto:2020227209@ufs4life.ac.za" target="_blank"></a> <i class="fas fa-envelope"></i></a>
-      </p>
-        <p>&copy;UFS. Nhlonipho Shezi</p>
-      </footer>
-      <script>
-        async function handleSubmit(event) {
-            event.preventDefault();
-            
-            const messageStatus = document.getElementById('message-status');
-            const submitButton = event.target.querySelector('button[type="submit"]');
-            
-            // Disable the submit button while processing
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            const formData = {
-                name: document.getElementById('name').value + ' ' + document.getElementById('surname').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
+				<label for="email">Email</label>
+				<input
+					type="email"
+					id="email"
+					name="email"
+					placeholder="Enter your email"
+					required />
 
-            try {
-                const response = await fetch('/send-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
+				<label for="message">Message</label>
+				<textarea
+					id="message"
+					name="message"
+					rows="4"
+					placeholder="Enter your message"
+					required></textarea>
+				<section id="form_button">
+					<button type="submit">Send</button>
+				</section>
+			</form>
+		</main>
+		<footer>
+			<p>
+				<a href="https://www.linkedin.com/in/nhloniphoshezi" target="_blank"
+					><i class="fab fa-linkedin"></i
+				></a>
+				<a href="mailto:2020227209@ufs4life.ac.za" target="_blank">
+					<i class="fas fa-envelope"></i
+				></a>
+				<a href="https://github.com/MfanaShezi" target="_blank">
+					<i class="fab fa-github"></i
+				></a>
+			</p>
+			<p>&copy;UFS. Nhlonipho Shezi</p>
+		</footer>
+		<script>
+			async function handleSubmit(event) {
+				event.preventDefault();
 
-                if (response.ok) {
-                    messageStatus.textContent = 'Message sent successfully!';
-                    messageStatus.style.color = 'green';
-                    event.target.reset(); // Clear the form
-                } else {
-                    throw new Error('Failed to send message');
-                }
-            } catch (error) {
-                messageStatus.textContent = 'Error sending message. Please try again.';
-                messageStatus.style.color = 'red';
-                console.error('Error:', error);
-            } finally {
-                // Re-enable the submit button
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send';
-            }
-        }
-    </script>
+				const messageStatus = document.getElementById("message-status");
+				const submitButton = event.target.querySelector(
+					'button[type="submit"]'
+				);
 
-    <!-- Add some basic styles -->
-    <style>
-        #message-status {
-            margin-top: 1rem;
-            text-align: center;
-            font-weight: bold;
-        }
+				// Disable the submit button while processing
+				submitButton.disabled = true;
+				submitButton.textContent = "Sending...";
 
-        button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-    </style>
-</body>
+				const formData = {
+					name:
+						document.getElementById("name").value +
+						" " +
+						document.getElementById("surname").value,
+					email: document.getElementById("email").value,
+					message: document.getElementById("message").value,
+				};
+
+				try {
+					const response = await fetch("/send-email", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(formData),
+					});
+
+					if (response.ok) {
+						messageStatus.textContent = "Message sent successfully!";
+						messageStatus.style.color = "green";
+						event.target.reset(); // Clear the form
+					} else {
+						throw new Error("Failed to send message");
+					}
+				} catch (error) {
+					messageStatus.textContent =
+						"Error sending message. Please try again.";
+					messageStatus.style.color = "red";
+					console.error("Error:", error);
+				} finally {
+					// Re-enable the submit button
+					submitButton.disabled = false;
+					submitButton.textContent = "Send";
+				}
+			}
+		</script>
+
+		<!-- Add some basic styles -->
+		<style>
+			#message-status {
+				margin-top: 1rem;
+				text-align: center;
+				font-weight: bold;
+			}
+
+			button:disabled {
+				opacity: 0.7;
+				cursor: not-allowed;
+			}
+		</style>
+	</body>
 </html>
